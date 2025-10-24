@@ -164,4 +164,19 @@ help NumericalAlgebraicGeometry
 
 
 
+----------------------------
+monomialIdealRadical = I -> (
+    M := first entries gens I;
+    R := ring I;
+    ideal for f in M list (
+        -- f is a generator of the ideal I (assume to be monomial ideal)
+        e := for i in first exponents f list (
+            -- i is an exponent of a generator of I
+            if i > 0 then 1 else 0
+            );
+        R_e -- the new monomial without higher exponents
+        )
+    )
 
+monomialIdealRadical(ideal(R_{0,0,1}, R_{2,1,0},R_{1,2,3}))
+mingens oo
